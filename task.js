@@ -660,12 +660,13 @@ wordCount(sentence);
  */
 
 /**
- * ================ Task 01: Vowel Count  ==========
+ * ================ Task 01: Vowel Count  ==================
  * Vowel Count using JS
  * =========================================================
  */
 
 // Using Regular Expression
+// ----------------------------
 /**
 let sentence = "Hello there, My Name is Shuvo Mallick";
 
@@ -680,6 +681,7 @@ console.log(result);
  */
 
 // Using Loop
+// ------------
 /**
 let sentence = "Hello there, My Name is Shuvo Mallick";
 
@@ -707,8 +709,52 @@ function countVowel(str) {
 console.log(countVowel(sentence));
  */
 
+// Best Way
+// ------------
 /**
- * ================ Task 01: Highest digit  ==========
+let sentence = "My name is Shuvo Mallick";
+
+function countVowel(str) {
+  if (typeof str !== "string") return false;
+  let vowel = "aeiou";
+  let strLowerCase = str.toLowerCase();
+
+  let countVowel = 0;
+  for (let i = 0; i < strLowerCase.length; i++) {
+    if (vowel.search(strLowerCase[i]) !== -1) {
+      countVowel++;
+    }
+  }
+  console.log(countVowel);
+}
+
+countVowel(sentence);
+ */
+
+// Best Way (Using Array Vowel)
+// ----------------------------
+/**
+let sentence = "My name is Shuvo Mallick";
+
+function countVowel(str) {
+  if (typeof str !== "string") return false;
+  let vowel = ["a", "e", "i", "o", "u"];
+  let strLowerCase = str.toLowerCase();
+
+  let countVowel = 0;
+  for (let i = 0; i < strLowerCase.length; i++) {
+    if (vowel.indexOf(strLowerCase[i]) !== -1) {
+      countVowel++;
+    }
+  }
+  console.log(countVowel);
+}
+
+countVowel(sentence);
+ */
+
+/**
+ * ================ Task 01: Highest digit  ==================
  * Highest digit
  * =========================================================
  */
@@ -729,6 +775,27 @@ function findHighestDigit(num) {
 
 // findHighestDigit(45568);
 console.log(findHighestDigit(45568));
+ */
+
+// best Way
+// -------------
+/**
+function heighestDigit(num) {
+  if (typeof num !== "number") return false;
+  let numToArr = num.toString().split("");
+
+  let largeDigit = 0;
+  numToArr.forEach((item) => {
+    // const number = Number(item);
+    if (item > largeDigit) {
+      largeDigit = item;
+    }
+  });
+
+  console.log(largeDigit);
+}
+
+heighestDigit(236981);
  */
 
 /**
