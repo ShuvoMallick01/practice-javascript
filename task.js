@@ -479,11 +479,11 @@ console.log(findNumber);
  */
 
 /**
- * =============== Task 03: Map ===============
+ * =============== Task 03: Map ================================
  * How to work Map in the Behind the Scene
  * const numbers = [1, 2, 3, 4, 8, 9];
  * const newArr = numbers.map((value, index, array) => value * 1);
- * =============== Task ===============
+ * =============== Task ==========================================
  */
 
 /**
@@ -681,7 +681,7 @@ console.log(result);
  */
 
 // Using Loop
-// ------------
+// ----------
 /**
 let sentence = "Hello there, My Name is Shuvo Mallick";
 
@@ -697,20 +697,14 @@ function countVowel(str) {
     }
   }
 
-  // for (let i = 0; i < string.length; i++) {
-  //   if (vowel.includes(string[i])) {
-  //     result++;
-  //   }
-  // }
-
   return result;
 }
 
 console.log(countVowel(sentence));
  */
 
-// Best Way
-// ------------
+// Best Way (Vowel Using String)
+// ----------------------------
 /**
 let sentence = "My name is Shuvo Mallick";
 
@@ -756,7 +750,7 @@ countVowel(sentence);
 /**
  * ================ Task 01: Highest digit  ==================
  * Highest digit
- * =========================================================
+ * ===========================================================
  */
 
 /**
@@ -814,7 +808,7 @@ console.log(findLowestDigit(459568));
  */
 
 /**
- * ================ Task: Nabed Task  ================
+ * ================ Task: Nabed Task Letter Swapping  ================
  * NabED
  * akta String pass krvo capital and small letter combined kore
  * return krbe capital gulo small letter e and small gulo capital letter a
@@ -844,3 +838,217 @@ function strFunction(str) {
 // strFunction("NabED");
 console.log(strFunction("NabED"));
  */
+
+/**
+ * ================ Task: Letter Swapping  ======================
+ * ShVoMaLLiK
+ * akta String pass krvo capital and small letter combined kore
+ * return krbe capital gulo small letter e and small gulo capital letter a
+ * =========================================================
+ */
+
+/**
+function letterSwapping(str) {
+  if (typeof str !== "string") return false;
+  arrLowerStr = str.toLowerCase();
+
+  let swappedStr = [];
+  for (let i = 0; i < str.length; i++) {
+    if (arrLowerStr.search(str[i]) !== -1) {
+      let singleStr = str[i].toUpperCase();
+      swappedStr.push(singleStr);
+    } else {
+      let singleStr = str[i].toLowerCase();
+      swappedStr.push(singleStr);
+    }
+  }
+  console.log(swappedStr.join(""));
+}
+
+letterSwapping("ShVoMaLLiK");
+ */
+
+/**
+ * ================ Task: Find Second Largest Number  ====================
+ * =======================================================================
+ */
+// Using Set of Number
+// ---------------------
+/**
+function findSecondLargeNum(num) {
+  if (typeof num !== "number") return false;
+  numStr = num.toString();
+
+  let result = 0;
+  for (let i = 0; i < numStr.length; i++) {
+    if (result < numStr[i] - 1) {
+      result = numStr[i];
+    }
+  }
+  console.log(result);
+}
+
+findSecondLargeNum(1325664892);
+ */
+
+// Using Array 1st Way (Wrong)
+// --------------------------
+/**
+const arrNum = [7, 2, 5, 8, 1, 9, 9];
+
+function findSecdLarNum(arr) {
+  if (Array.isArray(arr) !== true) return false;
+  const sortedArr = arr.sort();
+  const result = sortedArr[sortedArr.length - 2];
+  console.log(result);
+}
+
+findSecdLarNum(arrNum);
+ */
+
+// Using Array 1st Way (Good Way)
+// ------------------------------
+
+/**
+const arrNum = [7, 2, 5, 8, 1, 9, 9];
+
+function findSecdLarNum(arr) {
+  if (Array.isArray(arr) !== true) return false;
+  var UniqueNumArr = arr.filter((item, index) => arr.indexOf(item) === index);
+  // console.log(UniqueNumArr);
+  var intArray = UniqueNumArr.map(Number);
+  var second = intArray.sort(function (a, b) {
+    return b - a;
+  })[1];
+  console.log(second);
+}
+
+findSecdLarNum(arrNum);
+ */
+
+/**
+ * ====================================================================
+ * ================ Task: Find Second Smallest Number  ================
+ * ====================================================================
+ */
+
+/**
+const arrNum = [7, 2, 5, 8, 1, 9, 9];
+
+function findSecdLarNum(arr) {
+  if (Array.isArray(arr) !== true) return false;
+  var UniqueNumArr = arr.filter((item, index) => arr.indexOf(item) === index);
+  // console.log(UniqueNumArr);
+  var intArray = UniqueNumArr.map(Number);
+  var second = intArray.sort(function (a, b) {
+    return a - b;
+  })[1];
+  console.log(second);
+}
+
+findSecdLarNum(arrNum);
+ */
+
+/**
+ * =====================================================================================
+ * ================ Task: Create Phone Number Format: +880 xxxxx-xxxxxx ================
+ * =====================================================================================
+ */
+// 1st Not Good Way
+// --------------------
+/**
+function phoneNum(num) {
+  if (isNaN(num)) return false;
+  return `+88 ${num.slice(0, 6)} ${num.slice(6, 11)}`;
+}
+
+let number = phoneNum("01516100126");
+console.log(number);
+ */
+// 2nd Way
+// ---------
+
+/**
+let rawString = "111.222.3333 / need to remove this text (some more text)";
+
+const formatTelNumber = (phoneNumberString) => {
+  let stringWithNumber = phoneNumberString.split("/")[0];
+  let cleaned = ("" + stringWithNumber).replace(/\D/g, "");
+  let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return `(${match[1]}) ${match[2]}-${match[3]}`;
+  }
+  return null;
+};
+console.log(formatTelNumber(rawString));
+ */
+
+// let number = "01516100125";
+
+// function formatPhoneNum(num, format) {
+//   if (isNaN(num)) return "Its Not a Number";
+// }
+
+// const result = formatPhoneNum((numberArry, format) => {
+//   let bd = "01";
+//   let us;
+//   if (number.search("01"));
+// });
+
+// formatPhoneNum(phoneNumber);
+// console.log(formatPhoneNum(phoneNumber));
+//take number filter the number then it will return the International format country code return
+//country number code
+
+// const getCountryCode = (numberStr, cb) => {
+//   if (numberStr) {
+//     return cb(numberStr);
+//   }
+// };
+
+// const answer = getCountryCode("01516176583", (number) => {
+//   if (number.length === 11) {
+//     return `+88-${number.slice(0, 5)}-${number.slice(5, 11)}`;
+//   }
+// });
+
+// console.log(answer);
+
+/**
+const getCountryCode = (number, cb) => {
+  if (number) {
+    return cb(number);
+  }
+};
+
+const answer = getCountryCode("0151617583", (number) => {
+  if (number.length === 11) {
+    return `+88-${number.slice(0, 5)}-${number.slice(5, 11)}`;
+  } else if (number.length === 10) {
+    return `+91-${number.slice(0, 5)}-${number.slice(5, 10)}`;
+  } else {
+    return "Not Match Any Number Format";
+  }
+});
+
+console.log(answer);
+ */
+
+// Formated Phone Number
+// -----------------------
+/**
+function phoneNumberFormat(format, phoneNumber) {
+  let originalformat = format;
+}
+
+phoneNumberFormat("+88XXXXX-XXXXXX", "01721371302");
+ */
+
+// Reduce Function
+// ----------------
+
+const numbers = [1, 23, 45, 67, 55];
+
+numbers.reduce((prev, curr, index, arr) => {
+  console.log(prev, curr, index);
+});

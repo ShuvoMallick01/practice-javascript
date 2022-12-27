@@ -192,9 +192,9 @@ if (test == 2) {
 // console.log(maped);
 
 // ================= ARRAY =================
-const fruits = ["Banana", "Orange", "Apple", "Mango", "Lemon"];
+// const fruits = ["Banana", "Orange", "Apple", "Mango", "Lemon"];
 // const fvtFood = ["Chocolate", "Egg"];
-const fvtFood = fruits.slice(1, 4);
+// const fvtFood = fruits.slice(1, 4);
 
 // function myFunction(value) {
 //   console.log(value);
@@ -212,4 +212,20 @@ const fvtFood = fruits.slice(1, 4);
 // console.log(fruits.concat(fvtFood));
 // console.log(fruits.splice(2, 3, "Lemon", "Kiwi"), fruits);
 // console.log(fruits.slice(1));
-console.log(fruits);
+// console.log(fruits);
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// const points = [40, 100, 1, 5, 25, 10];
+
+// let result = points.sort(function (a, b) {
+//   console.log(a - b);
+// });
+
+// console.log(result);
+
+const points = [40, 100, 1, 5, 25, 10];
+let result = points.sort(function () {
+  return 0.5 - Math.random();
+});
+
+console.log(result);

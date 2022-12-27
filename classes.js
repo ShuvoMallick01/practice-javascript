@@ -758,7 +758,7 @@ console.log(wordCount(sentence));
 // -----------------------------
 
 // Using Character
-
+/**
 let sentence = "Hello I am Shuvo Mallick";
 
 function vowelCount(str) {
@@ -778,3 +778,47 @@ function vowelCount(str) {
 
 let str = "shuvo";
 console.log(typeof str);
+ */
+
+/**
+===========================================================
+12th Class: Rest Operator, Spread Operator
+===========================================================
+ */
+// Array Total Sum Using Rest Operator
+// ------------------
+/**
+function sum(...numbers) {
+  return numbers.reduce((pre, curr) => pre + curr, 50);
+}
+
+console.log(sum(1, 2, 3, 4));
+*/
+
+// Spread Operator Use
+// --------------------
+/**
+const country = "Bangladesh";
+
+const characters = [...country];
+const arr2 = [...characters];
+console.log(characters, arr2);
+ */
+
+/**
+===========================================================
+13th Class: 
+===========================================================
+ */
+
+// Function Swapping
+// --------------------
+
+function largestNumber(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  const sortedArr = arr.sort((a, b) => a - b);
+  return sortedArr[sortedArr.length - 2];
+}
+
+console.log(largestNumber([1, 2, 3, 45, 100, 7]));
