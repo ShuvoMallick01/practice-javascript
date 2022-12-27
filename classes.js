@@ -811,14 +811,45 @@ console.log(characters, arr2);
 ===========================================================
  */
 
-// Function Swapping
+// Case Swapping
 // --------------------
+// Best Way 01
+// ------------
+/**
+function caseSwap(str) {
+  if (typeof str !== "string") return false;
 
-function largestNumber(arr) {
-  if (!Array.isArray(arr)) return false;
-
-  const sortedArr = arr.sort((a, b) => a - b);
-  return sortedArr[sortedArr.length - 2];
+  let changeCase = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toLowerCase()) {
+      changeCase += str[i].toUpperCase();
+    } else {
+      changeCase += str[i].toLowerCase();
+    }
+  }
+  console.log(changeCase);
 }
 
-console.log(largestNumber([1, 2, 3, 45, 100, 7]));
+caseSwap("banGlaDesh");
+ */
+
+// Best Way 02 (Not Solve)
+// ------------
+/**
+function caseSwap(str) {
+  if (typeof str !== "string") return false;
+
+  let changeCase = "";
+
+  str.forEach((item) => {
+    if (item == item.toLowerCase()) {
+      changeCase += item.toUpperCase();
+    } else {
+      changeCase += item.toLowerCase();
+    }
+  });
+  console.log(changeCase);
+}
+
+caseSwap("banGlaDesh");
+ */

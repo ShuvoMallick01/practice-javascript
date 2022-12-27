@@ -868,6 +868,47 @@ function letterSwapping(str) {
 letterSwapping("ShVoMaLLiK");
  */
 
+// Best Way 01
+// ------------
+/**
+function caseSwap(str) {
+  if (typeof str !== "string") return false;
+
+  let changeCase = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toLowerCase()) {
+      changeCase += str[i].toUpperCase();
+    } else {
+      changeCase += str[i].toLowerCase();
+    }
+  }
+  console.log(changeCase);
+}
+
+caseSwap("banGlaDesh");
+ */
+
+// Best Way 02 (Not Solve)
+// -----------------------
+/**
+function caseSwap(str) {
+  if (typeof str !== "string") return false;
+
+  let changeCase = "";
+
+  str.forEach((item) => {
+    if (item == item.toLowerCase()) {
+      changeCase += item.toUpperCase();
+    } else {
+      changeCase += item.toLowerCase();
+    }
+  });
+  console.log(changeCase);
+}
+
+caseSwap("banGlaDesh");
+ */
+
 /**
  * ================ Task: Find Second Largest Number  ====================
  * =======================================================================
@@ -909,6 +950,8 @@ findSecdLarNum(arrNum);
 // Using Array 1st Way (Good Way)
 // ------------------------------
 
+// 1st Way Self Done
+// -----------------
 /**
 const arrNum = [7, 2, 5, 8, 1, 9, 9];
 
@@ -1043,12 +1086,3 @@ function phoneNumberFormat(format, phoneNumber) {
 
 phoneNumberFormat("+88XXXXX-XXXXXX", "01721371302");
  */
-
-// Reduce Function
-// ----------------
-
-const numbers = [1, 23, 45, 67, 55];
-
-numbers.reduce((prev, curr, index, arr) => {
-  console.log(prev, curr, index);
-});

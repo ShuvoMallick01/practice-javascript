@@ -228,4 +228,12 @@ let result = points.sort(function () {
   return 0.5 - Math.random();
 });
 
-console.log(result);
+// console.log(result);
+
+const dataSetArray = [];
+
+for (let i = 0; i < 50; i++) {
+  dataSetArray.push(Math.trunc(Math.random() * 100 + 1));
+}
+
+console.log(dataSetArray);
