@@ -969,12 +969,52 @@ function findSecdLarNum(arr) {
 findSecdLarNum(arrNum);
  */
 
+// Best Way 01
+// -----------
+/**
+function largestNumber(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  var uniqueArr = arr.filter((item, index) => arr.indexOf(item) === index);
+
+  const sortedArr = uniqueArr.sort((a, b) => a - b);
+  return sortedArr[sortedArr.length - 2];
+}
+
+console.log(largestNumber([1, 2, 55, 21, 5, 90, 444]));
+ */
+
+// Best Way 02
+// -----------
+/**
+function secondLargest(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let largest = [];
+  let secondLargest = [];
+
+  arr.forEach((item) => {
+    // console.log(item);
+    if (item > largest) {
+      secondLargest = largest;
+      largest = item;
+    } else if (item > secondLargest && item < largest) {
+      secondLargest = item;
+    }
+  });
+  return secondLargest;
+}
+
+console.log(secondLargest([1, 7, 55, 21, 5, 90, 444]));
+ */
+
 /**
  * ====================================================================
  * ================ Task: Find Second Smallest Number  ================
  * ====================================================================
  */
-
+// 1st Way Self Done
+// -----------------
 /**
 const arrNum = [7, 2, 5, 8, 1, 9, 9];
 
@@ -997,19 +1037,8 @@ findSecdLarNum(arrNum);
  * ================ Task: Create Phone Number Format: +880 xxxxx-xxxxxx ================
  * =====================================================================================
  */
-// 1st Not Good Way
-// --------------------
-/**
-function phoneNum(num) {
-  if (isNaN(num)) return false;
-  return `+88 ${num.slice(0, 6)} ${num.slice(6, 11)}`;
-}
-
-let number = phoneNum("01516100126");
-console.log(number);
- */
-// 2nd Way
-// ---------
+// 1st Way (Not good)
+// ------------------
 
 /**
 let rawString = "111.222.3333 / need to remove this text (some more text)";
@@ -1026,37 +1055,8 @@ const formatTelNumber = (phoneNumberString) => {
 console.log(formatTelNumber(rawString));
  */
 
-// let number = "01516100125";
-
-// function formatPhoneNum(num, format) {
-//   if (isNaN(num)) return "Its Not a Number";
-// }
-
-// const result = formatPhoneNum((numberArry, format) => {
-//   let bd = "01";
-//   let us;
-//   if (number.search("01"));
-// });
-
-// formatPhoneNum(phoneNumber);
-// console.log(formatPhoneNum(phoneNumber));
-//take number filter the number then it will return the International format country code return
-//country number code
-
-// const getCountryCode = (numberStr, cb) => {
-//   if (numberStr) {
-//     return cb(numberStr);
-//   }
-// };
-
-// const answer = getCountryCode("01516176583", (number) => {
-//   if (number.length === 11) {
-//     return `+88-${number.slice(0, 5)}-${number.slice(5, 11)}`;
-//   }
-// });
-
-// console.log(answer);
-
+// 2nd Way (Not good)
+// ------------------
 /**
 const getCountryCode = (number, cb) => {
   if (number) {
@@ -1077,12 +1077,5 @@ const answer = getCountryCode("0151617583", (number) => {
 console.log(answer);
  */
 
-// Formated Phone Number
+// Best Way (Good Dynamic)
 // -----------------------
-/**
-function phoneNumberFormat(format, phoneNumber) {
-  let originalformat = format;
-}
-
-phoneNumberFormat("+88XXXXX-XXXXXX", "01721371302");
- */
