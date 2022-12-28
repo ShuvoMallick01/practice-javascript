@@ -1054,7 +1054,6 @@ const formatTelNumber = (phoneNumberString) => {
 };
 console.log(formatTelNumber(rawString));
  */
-
 // 2nd Way (Not good)
 // ------------------
 /**
@@ -1079,3 +1078,139 @@ console.log(answer);
 
 // Best Way (Good Dynamic)
 // -----------------------
+/**
+function phoneNumberFormat(format, phoneNumber) {
+  let originalFormat = format;
+
+  for (let i = 0; i < phoneNumber.length; i++) {
+    originalFormat = originalFormat.replace("X", phoneNumber[i]);
+  }
+  console.log(originalFormat);
+}
+
+phoneNumberFormat("+88 XXXXX XXXXXX", "01516100125");
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 01: Find a longest word from a sentence - "Artificial Intelligence is a great technology" ======
+ * single Hand only word "i" {"a" is not a word}
+ * =======================================================================================
+ */
+// 1st Way (My Self)
+// ------------------
+/**
+let sentence = "Artificial Intelligence is a great technology";
+
+function longestWord(str) {
+  if (typeof str !== "string") return false;
+  let splitedStr = str.split(" ");
+
+  let longestWord = "";
+  for (let i = 0; i < splitedStr.length; i++) {
+    if (longestWord.length < splitedStr[i].length) {
+      longestWord = splitedStr[i];
+    }
+  }
+  console.log(longestWord);
+}
+
+longestWord(sentence);
+ */
+
+// 2nd Way
+// --------
+/**
+let sentence = "Artificial Intelligence is a great technology";
+
+function longestWord(str) {
+  if (typeof str !== "string") return false;
+  let splitedStr = str.split(" ");
+  let sortedArr = splitedStr.sort((a, b) => a.length - b.length);
+  console.log(sortedArr[sortedArr.length - 1]);
+}
+
+longestWord(sentence);
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 02: Find a Smallest word from a sentence - "Artificial Intelligence is a great technology" ======
+ * single Hand only word "i" {"a" is not a word}
+ * =======================================================================================
+ */
+// 1st Way (My Self)
+// ------------------
+/**
+let sentence = "Artificial Intelligence is a great technology";
+
+function findShort(sentence) {
+  const arr = sentence.split(" ");
+  const sortedArr = arr.sort((a, b) => a.length - b.length);
+  console.log(sortedArr[0]);
+}
+
+findShort(sentence);
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 03: Put Array in middle - array([1,2,3,8,9,10], [4,5,6,7]) => [1,2,3,4,5,6,7,8,9,10] ======
+ * =======================================================================================
+ */
+/**
+const arr1 = [1, 2, 8, 9, 10];
+const arr2 = [3, 4, 5, 6, 7];
+
+function concatArr(arr1, arr2) {
+  if (!Array.isArray(arr1, arr2)) return false;
+  let middleIndex = Math.floor(arr1.length / 2);
+  arr1.splice(middleIndex, 0, ...arr2);
+  console.log(arr1);
+}
+
+concatArr(arr1, arr2);
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 04: Sort array by element length- ["dddd", "a", "ccc", "bb"] -> ["a", "bb", "ccc", "dddd"] ======
+ * =======================================================================================
+ */
+/**
+const arr = ["dddd", "a", "ccc", "bb"];
+
+function sortArr(arr) {
+  if (!Array.isArray(arr)) return false;
+  const sortedArr = arr.sort((a, b) => a.length - b.length);
+  console.log(sortedArr);
+}
+
+sortArr(arr);
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 05: Find the absolute sum- ([2,-1, 4, -8, 10]) -> 7 ======
+ * =======================================================================================
+ */
+
+const arr1 = [2, -1, 4, -8, 10];
+
+function absoluteSum(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let positiveTotal = 0;
+  let negativeTotal = 0;
+  arr.forEach((item) => {
+    if (item < 0) {
+      negativeTotal = negativeTotal + Math.abs(item);
+    } else {
+      positiveTotal = positiveTotal + Math.abs(item);
+    }
+  });
+
+  console.log(positiveTotal - negativeTotal);
+}
+
+absoluteSum(arr1);

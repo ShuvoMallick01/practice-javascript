@@ -807,7 +807,7 @@ console.log(characters, arr2);
 
 /**
 ===========================================================
-13th Class: 
+13th Class: Problem Solving + Reduce Function 
 ===========================================================
  */
 
@@ -852,4 +852,27 @@ function caseSwap(str) {
 }
 
 caseSwap("banGlaDesh");
+ */
+
+// reduce Function
+// ----------------
+/**
+const numbers = [1, 25, 50, 67, 55, 87];
+
+numbers.reduce((prev, curr, index, arr) => {
+  console.log(prev);
+  // return [...prev, curr * 2];
+  // return { ...prev, [index]: curr };
+  return [...prev, curr * 2];
+  return prev + curr;
+}, []);
+ */
+
+/**
+const numbers = [1, 25, 50, 67, 55, 87];
+
+const result = numbers.reduce((pre, curr) => {
+  console.log(pre + "+");
+  return pre * curr;
+});
  */
