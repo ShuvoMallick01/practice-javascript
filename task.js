@@ -1195,6 +1195,9 @@ sortArr(arr);
  * =======================================================================================
  */
 
+// 1st Way MySelf (Not Good)
+// ----------
+
 /**
 const arr1 = [2, -1, 4, -8, 10];
 
@@ -1217,6 +1220,30 @@ function absoluteSum(arr) {
 absoluteSum(arr1);
  */
 
+// 2nd Way (Good)
+// ----------
+/**
+const arr1 = [2, -1, 4, -8, 10];
+
+function absoluteSum(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  const result = arr.reduce((prev, curr) => {
+    if (curr > 0) {
+      prev = prev + curr;
+    } else {
+      prev = prev - Math.abs(curr);
+    }
+
+    return prev;
+  }, 0);
+
+  console.log(result);
+}
+
+absoluteSum(arr1);
+ */
+
 /**
  * =======================================================================================
  * ===== Task 06: Make Product Base Array | One Array have many objects |
@@ -1232,8 +1259,8 @@ absoluteSum(arr1);
  * =======================================================================================
  */
 
-// 1st Way
-// ---------
+// 1st Way (Not Good Menually)
+// ---------------------------
 /**
 const products = [
   { name: "iPhone 13 Pro", price: 999, qty: 4 },
@@ -1263,19 +1290,54 @@ function cartTotal(arr) {
 cartTotal(products);
  */
 
+// 2nd Best Way (Using Reduce)
+// ---------------------------
+/**
 const products = [
-  { name: "iPhone 13 Pro", price: 999, qty: 4 },
-  { name: "iPhone 12 Pro", price: 500, qty: 3 },
-  { name: "iPhone 11 Pro", price: 600, qty: 2 },
-  { name: "iPhone 12 Pro", price: 750, qty: 5 },
-  { name: "iPhone 14 Pro", price: 850, qty: 3 },
+  { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { id: 3, name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { id: 4, name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { id: 5, name: "iPhone 14 Pro", price: 850, qty: 3 },
 ];
-products.reduce((prev, curr, index, arr) => {
-  // console.log(prev);
-  // return prev + curr.price;
 
-  let singleArr = [];
-  singleArr.push(arr.price * arr.qty);
-  console.log(singleArr);
-  // return arr.price * arr.qty;
-}, 0);
+function cartTotal(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let totalAmount = arr.reduce((prev, curr) => prev + curr.price * curr.qty, 0);
+  let totalQuantity = arr.reduce((prev, curr) => prev + curr.qty, 0);
+  console.log(`${totalAmount} ${totalQuantity}`);
+}
+
+cartTotal(products);
+ */
+
+// 3rd Best Way (Using Reduce)
+// ---------------------------
+/**
+const products = [
+  { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { id: 3, name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { id: 4, name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { id: 5, name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+
+function cartTotal(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let result = arr.reduce(
+    (prev, curr) => {
+      prev.totalAmount += curr.price * curr.qty;
+      prev.totalQuantity += curr.qty;
+
+      return prev;
+    },
+    { totalAmount: 0, totalQuantity: 0 }
+  );
+
+  console.log(result);
+}
+
+cartTotal(products);
+ */

@@ -902,6 +902,7 @@ const productsObj = products.reduce((prev, curr) => {
 console.log(productsObj);
  */
 
+/**
 const products = [
   { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
   { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
@@ -916,3 +917,31 @@ const cartTotal = products.reduce((prev, curr) => {
 });
 
 console.log(cartTotal);
+ */
+
+/**
+Object.values("");
+
+const obj = { name: "Bangladesh" };
+
+console.log(Object.values(obj));
+console.log(Object.keys(obj));
+ */
+
+const products = [
+  { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { id: 3, name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { id: 4, name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { id: 5, name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+
+function cartTotal(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let totalAmount = arr.reduce((prev, curr) => prev + curr.price * curr.qty, 0);
+  let totalQuantity = arr.reduce((prev, curr) => prev + curr.qty, 0);
+  console.log(`${totalAmount} ${totalQuantity}`);
+}
+
+cartTotal(products);
