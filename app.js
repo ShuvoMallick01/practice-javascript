@@ -223,17 +223,135 @@ if (test == 2) {
 
 // console.log(result);
 
+/**
 const points = [40, 100, 1, 5, 25, 10];
+
 let result = points.sort(function () {
-  return 0.5 - Math.random();
+  return 0.5 - Math.random(points);
 });
 
-// console.log(result);
+console.log(result);
+ */
 
-const dataSetArray = [];
+/**
+const point = [40, 100, 1, 5, 25, 10];
 
-for (let i = 0; i < 50; i++) {
-  dataSetArray.push(Math.trunc(Math.random() * 100 + 1));
+function fisherYates(points) {
+  for (let i = points.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let k = points[i];
+    points[i] = points[i];
+    points[j] = k;
+  }
+  console.log(points);
 }
 
-console.log(dataSetArray);
+fisherYates(point);
+ */
+
+/**
+const point = [40, 100, 1, 5, 25, 10];
+
+function fisherYates(points) {
+  for (let i = points.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let k = points[i];
+    points[i] = points[i];
+    points[j] = k;
+  }
+  console.log(points);
+}
+
+fisherYates(point);
+ */
+
+/**
+const point = [40, 100, 100, 5, 25, 10];
+
+function myArr(arr) {
+  // return Math.max.apply(null, arr);
+  return Math.min.apply(null, arr);
+}
+
+console.log(myArr(point));
+ */
+
+/**
+const point = [40, 100, 100, 5, 25, 10];
+
+function myArrayMax(arr) {
+  let max = Infinity;
+  let len = arr.length;
+
+  while (len--) {
+    if (arr[len] < max) {
+      max = arr[len];
+    }
+  }
+  return max;
+}
+
+console.log(myArrayMax(point));
+ */
+
+/**
+const cars = [
+  { type: "Volvo", year: 2016 },
+  { type: "Saab", year: 2001 },
+  { type: "BMW", year: 2010 },
+];
+
+cars.sort(function (a, b) {
+  return a.year - b.year;
+});
+
+console.log(cars);
+ */
+
+/**
+const numbers = [45, 4, 9, 16, 25];
+
+numbers.forEach((item) => {
+  console.log(item);
+});
+*/
+
+/** 
+const numbers = [45, 4, 9, 16, 25];
+
+let result = numbers.every((value) => {
+  return value > 2;
+}, 0);
+
+console.log(result);
+*/
+
+/**
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+
+let position = fruits.indexOf("Mango");
+
+console.log(position);
+console.log(fruits);
+ */
+
+/**
+const numbers = [4, 9, 16, 25, 29];
+
+let result = numbers.findIndex((value, index, array) => value > 17);
+
+console.log(result);
+*/
+
+/**
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits.includes("Mango"));
+ */
+// for (let x of myArr.includes("D")) {
+//   console.log(x);
+// }
+// console.log(myArr.keys());
+
+const d = new Date("2022-03-25");
+
+console.log(d);

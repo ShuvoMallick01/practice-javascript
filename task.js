@@ -1195,6 +1195,7 @@ sortArr(arr);
  * =======================================================================================
  */
 
+/**
 const arr1 = [2, -1, 4, -8, 10];
 
 function absoluteSum(arr) {
@@ -1214,3 +1215,67 @@ function absoluteSum(arr) {
 }
 
 absoluteSum(arr1);
+ */
+
+/**
+ * =======================================================================================
+ * ===== Task 06: Make Product Base Array | One Array have many objects |
+ * Mutiply Price x Qty Then Total Product Sum | Using Reduce Function ======
+ *
+ * const products=[
+ * {name: "iPhone 13 Pro", price: 999, qty: 2},
+ * {name: "iPhone 13 Pro", price: 999, qty: 2},
+ * {name: "iPhone 13 Pro", price: 999, qty: 2},
+ * {name: "iPhone 13 Pro", price: 999, qty: 2},
+ * {name: "iPhone 13 Pro", price: 999, qty: 2},
+ * ]
+ * =======================================================================================
+ */
+
+// 1st Way
+// ---------
+/**
+const products = [
+  { name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+
+function cartTotal(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  const singleArrTotal = [];
+  let totalQty = 0;
+  for (let i = 0; i < arr.length; i++) {
+    singleArrTotal.push(arr[i].price * arr[i].qty);
+    totalQty = totalQty + arr[i].qty;
+  }
+
+  console.log(
+    `Total Ammount: ${singleArrTotal.reduce(
+      (a, b) => a + b
+    )} Total Quantity: ${totalQty}`
+  );
+}
+
+cartTotal(products);
+ */
+
+const products = [
+  { name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+products.reduce((prev, curr, index, arr) => {
+  // console.log(prev);
+  // return prev + curr.price;
+
+  let singleArr = [];
+  singleArr.push(arr.price * arr.qty);
+  console.log(singleArr);
+  // return arr.price * arr.qty;
+}, 0);

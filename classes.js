@@ -876,3 +876,43 @@ const result = numbers.reduce((pre, curr) => {
   return pre * curr;
 });
  */
+
+/**
+===========================================================
+14th Class: Reduce Details Discuss and Problem Solving
+===========================================================
+ */
+
+// Conver Object Into Object
+// ----------------
+/**
+const products = [
+  { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { id: 3, name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { id: 4, name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { id: 5, name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+
+const productsObj = products.reduce((prev, curr) => {
+  prev[curr.id] = curr;
+  return prev;
+}, {});
+
+console.log(productsObj);
+ */
+
+const products = [
+  { id: 1, name: "iPhone 13 Pro", price: 999, qty: 4 },
+  { id: 2, name: "iPhone 12 Pro", price: 500, qty: 3 },
+  { id: 3, name: "iPhone 11 Pro", price: 600, qty: 2 },
+  { id: 4, name: "iPhone 12 Pro", price: 750, qty: 5 },
+  { id: 5, name: "iPhone 14 Pro", price: 850, qty: 3 },
+];
+
+const cartTotal = products.reduce((prev, curr) => {
+  prev = curr.price * curr.qty;
+  return prev;
+});
+
+console.log(cartTotal);
